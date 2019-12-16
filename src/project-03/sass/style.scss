@@ -1,0 +1,91 @@
+@import 'mixin';
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// .flex-box{
+//   display: flex;
+//   height: 100vh;
+// }
+ 
+.grid-layout{ 
+  // grid-gap: 60px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(20, 100px);
+  grid-template-rows: calc(200px 500px 200px);
+}
+
+.tower{
+   background-color: blue;
+   width: 20px;
+   height: 10px;
+}
+ 
+$base-color: #036;
+ 
+main>div{
+  position: relative;
+}
+
+main>div:nth-child(2n){
+    // align-self: flex-end;
+    position: relative;
+    // margin-left: 80px;  
+    grid-row: 3 / 1 span;   
+    border-top-left-radius: 50px; 
+    border-top-right-radius: 50px; 
+}
+     
+main>div:nth-child(4n + 3){
+  opacity: 0;
+}     
+main>div:nth-child(4n + 2){
+  opacity: 0;
+
+}
+
+@for $i from 1 through 20 {
+  main>div:nth-child(#{$i}) {
+ // background-color: lighten($base-color, $i * random(5));   
+       background-image: linear-gradient($base-color,lighten($base-color, $i * random(5)));
+        width: 90px;
+      //  height: 30vh + 1vh * random(20);
+  }
+      
+  main>div:nth-child(#{$i}){
+   
+    @if $i % 2 == 1{   
+    $number: 'hey' + $i; 
+    $value: 190px * random(5);    
+    height: $value;                    
+    border-bottom-right-radius: 20px * random(5); 
+    border-bottom-left-radius: 50px * random(5);     
+    animation: #{$number} $i/5 + s infinite alternate;
+      @if $i != 3 {
+    @include oscillation2($value,$number);  
+  }
+  @if $i == 3 {
+    height: 190px * 5;
+  }
+    
+
+  }                       
+    @else if $i % 2 == 0{    
+      $number: 'hey' + $i; 
+      $value: 190px * random(5);
+      height: $value;                    
+      transform: translateY(-$value);     
+      border-top-right-radius: 20px * random(5); 
+      border-top-left-radius: 50px * random(5);
+      animation: #{$number} $i/20 + s infinite alternate;
+      @include oscillation($value,$number);            
+    }
+}   
+     
+ }
+
+
