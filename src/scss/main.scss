@@ -1,2 +1,68 @@
 // This is where you can import other stylesheets or write your scss code
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "./mixin.scss";
+
+.card2{
+    width: 20vw; 
+    background-color: #0000ff;
+}
+
+a{
+    color: black;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(4, 200px);
+    background-color: #022f58;
+
+    & > .gridPlace1{
+ 
+    }
+    & > .gridPlace2{
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    } 
+    & > .gridPlace3{
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;     
+    }
+    & > .gridPlace4{
+        grid-column: 4 / 5;
+        grid-row: 2 / 3;
+    }
+
+} 
+
+.square45Deg{
+    overflow: hidden;
+    display:block;
+    transform: rotate(45deg);
+    color: white;
+    height: 200px; 
+    width: 200px;
+    margin-top: 100px;
+    margin-left: 100px;
+    border-radius: 10%;
+    border: solid black 2px;
+    box-shadow: 5px 5px 6px black;
+
+    & >div{
+        padding: 20%;
+        transform:rotate(-45deg);
+        height: 200px;
+        width: 200px;
+        color: black;
+        background-color: red;
+    }
+
+    
+
+}
+ 
+ 
+.aboutMe{
+    background-color: #26557e;
+    height: 100px;
+}
