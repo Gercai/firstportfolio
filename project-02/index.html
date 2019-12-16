@@ -1,0 +1,332 @@
+<!-- # Customer Satisfaction Dashboard
+
+* [x] centered on page
+* [] header underline effect
+* [] satisfaction number with icon -> vertically centered
+* [x] dropdown on hover of icon
+* [x] employee avatar
+* [x] columns that contain numbers are aligned right
+* [x] there is a hover effect when hovering on different rows
+
+
+> Note: You can use `https://robohash.org/` for the avatar images.
+Specify any string after the URL to get a random robot avatar:
+`https://robohash.org/marry` or `https://robohash.org/lou` or even `https://robohash.org/fghjklhgfhj`.
+
+See the examples:
+
+![example](customer-satisfaction-dashboard-example.png)
+![example](customer-satisfaction-dashboard-hover-example.png)
+
+* [] sticky header (optional) -> see into what issues you might run
+* [] responsive (optional) -> no overflow of entire page
+* [] Can you change the transcations header to be split?
+
+![example](customer-satisfaction-dashboard-split-header-example.png) -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+    }
+
+    .flexBox{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .mood{
+        height: 1.4rem;
+    }
+
+    section{
+        width: 60vw;
+    }
+
+    table{
+        width: 60vw;
+        border-collapse: collapse;
+     
+    }
+
+    .innerTable{
+        width: 20vw;
+        
+    }
+
+    tr>td:nth-child(5), tr>td:nth-child(6){
+        width: 10vw;
+    }
+
+    .header{
+        display: flex;
+        color: purple;
+        font-size: 1.4rem;
+
+    }
+
+    .header>h2{
+        border-bottom: purple solid 2px;
+    }
+
+    .header>div{
+        width: 70%;
+        height: 2.6rem;
+        border-bottom: gray solid 2px;
+    }
+
+
+    .side{
+        display: flex;
+        align-items: center;
+    }
+
+    .transaction, .duration{
+        text-align: right;
+    }
+
+    .more{
+        height: 1rem;   
+    }
+
+    
+    .add>button>img{
+        height: 1.2rem;
+    }
+
+    td{
+        padding: 0px 20px;
+        height: 3rem;
+        border-top: solid gray 1px;     
+    }
+
+    tr:last-child>td{
+        border-bottom: solid gray 1px;
+    }
+
+    .menu{
+        position: relative;
+    }
+
+    .menu:hover section{
+        display: block;
+    }
+
+    .menu>section{
+        position: absolute;
+        background-color: white;
+        top: 2rem;
+        left: -5vw;
+        display: none;
+        z-index: 1;
+    }
+
+    ul{
+        list-style: none;
+        width: 10vw;
+    }
+    li{
+        border: solid gray 1px;
+
+    }
+
+    .avatar{
+        height: 2rem;
+        object-fit: cover;
+        border: solid gray 2px;
+        border-radius: 25px;
+    }
+
+    button{
+        border: none;
+        background-color: white;
+    }
+
+    .hoverContainer>tr:hover{
+        box-shadow: 0 0 5px black;
+    }
+    
+    </style>
+</head>
+<body>
+
+<article class="flexBox">
+<section class="header">  
+      <h2>Customer Satisfaction</h2> 
+      <div class="emptySpace"></div>
+</section>
+    <table>
+        <thead>
+            <tr>
+                <th class="head">Select</th>
+                <th class="head">Avatar</th>
+                <th class="head">Second Name</th>
+                <th class="head">Last Name</th>
+                <th colspan="2"> 
+                    <table class="innerTable">
+                        <tr>
+                            <td colspan="2">Hello</td>
+                        </tr>
+                        <tr>
+                <td class="head">Nr of Transactions</td>
+                <td class="head">Average Duration (in min)</td>
+                        </tr>    
+                </table>
+                </th>
+                <th class="head">Average Custome Satisfaction</th>
+                <th class="head">Menu</th>
+            </tr>
+        </thead>
+        <tbody class="hoverContainer">
+            <tr class="trow">
+                <td class="tulpe add">
+                    <button><img src="images/add.png"></button>
+                </td>
+                <td class="tulpe">
+                    <img src="https://robohash.org/marry" class="avatar">
+                </td>
+                <td class="tulpe">Mary</td>
+                <td class="tulpe">Jean</td>
+                <td class="tulpe transaction">453</td>
+                <td class="tulpe duration">2443</td>
+                <td class="tulpe side">    
+                    <img src="images/0-20-happy.png" class="mood">
+                    <p>92%</p>
+                </td>
+                <td class="tulpe menu">
+                    <img src="images/more.png" class="more">
+                    <section>
+                            <ul>
+                                <li>Employer records</li>
+                                <li>All transactions</li>
+                                <li>Delete</li>
+                            </ul>
+                    </section>
+                </td>
+            </tr>
+            <tr class="trow">
+                    <td class="tulpe add">
+                        <button><img src="images/add.png"></button>
+                    </td>
+                    <td class="tulpe">
+                        <img src="https://robohash.org/marry" class="avatar">
+                    </td>
+                    <td class="tulpe">Mary</td>
+                    <td class="tulpe">Jean</td>
+                    <td class="tulpe transaction">453</td>
+                    <td class="tulpe duration">2443</td>
+                    <td class="tulpe side">    
+                        <img src="images/0-20-happy.png" class="mood">
+                        <p>92%</p>
+                    </td>
+                    <td class="tulpe menu">
+                        <img src="images/more.png" class="more">
+                        <section>
+                                <ul>
+                                    <li>Employer records</li>
+                                    <li>All transactions</li>
+                                    <li>Delete</li>
+                                </ul>
+                        </section>
+                    </td>
+                </tr>
+                <tr class="trow">
+                        <td class="tulpe add">
+                            <button><img src="images/add.png"></button>
+                        </td>
+                        <td class="tulpe">
+                            <img src="https://robohash.org/marry" class="avatar">
+                        </td>
+                        <td class="tulpe">Mary</td>
+                        <td class="tulpe">Jean</td>
+                        <td class="tulpe transaction">453</td>
+                        <td class="tulpe duration">2443</td>
+                        <td class="tulpe side">    
+                            <img src="images/0-20-happy.png" class="mood">
+                            <p>92%</p>
+                        </td>
+                        <td class="tulpe menu">
+                            <img src="images/more.png" class="more">
+                            <section>
+                                    <ul>
+            <tr class="trow">
+                <td class="tulpe add">
+                    <button><img src="images/add.png"></button>
+                </td>
+                <td class="tulpe">
+                    <img src="https://robohash.org/marry" class="avatar">
+                </td>
+                <td class="tulpe">Mary</td>
+                <td class="tulpe">Jean</td>
+                <td class="tulpe transaction">453</td>
+                <td class="tulpe duration">2443</td>
+                <td class="tulpe side">    
+                    <img src="images/0-20-happy.png" class="mood">
+                    <p>92%</p>
+                </td>
+                <td class="tulpe menu">
+                    <img src="images/more.png" class="more">
+                    <section>
+                            <ul>
+                                <li>Employer records</li>
+                                <li>All transactions</li>
+                                <li>Delete</li>
+                            </ul>
+
+                        </section>
+                </td>
+            </tr>
+                    <tr class="trow">
+                            <td class="tulpe add">
+                                <button><img src="images/add.png"></button>
+                            </td>
+                            <td class="tulpe">
+                                <img src="https://robohash.org/marry" class="avatar">
+                            </td>
+                            <td class="tulpe">Mary</td>
+                            <td class="tulpe">Jean</td>
+                            <td class="tulpe transaction">453</td>
+                            <td class="tulpe duration">2443</td>
+                            <td class="tulpe side">    
+                                <img src="images/0-20-happy.png" class="mood">
+                                <p>92%</p>
+                            </td>
+                            <td class="tulpe menu">
+                                <img src="images/more.png" class="more">
+                                <section>
+                                        <ul>
+                                            <li>Employer records</li>
+                                            <li>All transactions</li>
+                                            <li>Delete</li>
+                                        </ul>
+            
+                                    </section>
+                            </td>
+                        </tr>
+                        
+
+
+        </tbody>
+
+
+    </table>
+</article>
+
+
+</body>
+</html>

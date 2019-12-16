@@ -1,0 +1,20 @@
+@mixin oscillation($wert,$number){
+    @keyframes #{$number}{ 
+      from{transform: translateY(0);
+        height: 0}    
+      to{transform: translateY(-$wert);
+        height: $wert
+    }
+    }
+    }
+ 
+
+    @mixin oscillation2($wert,$number){
+        @keyframes #{$number}{ 
+          from{
+            height: 0}    
+          to{
+            height: $wert
+        }
+        }
+        }
