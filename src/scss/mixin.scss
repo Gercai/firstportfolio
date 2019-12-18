@@ -1,0 +1,29 @@
+@mixin skillLevel {
+
+
+
+
+
+}
+
+
+@mixin oscillation($wert,$number){
+    @keyframes #{$number}{ 
+      from{transform: translateX(0);
+        width: $wert}    
+      to{transform: translateX(100 -$wert);
+        width:  $wert * 6;
+    }
+    }
+    }
+ 
+
+    @mixin oscillation2($wert,$number){
+        @keyframes #{$number}{ 
+          from{
+            width: 0}    
+          to{
+            width: $wert
+        }
+        }
+        }

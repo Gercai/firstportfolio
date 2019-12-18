@@ -1,31 +1,95 @@
 // This is where you can import other stylesheets or write your scss code
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "./mixin.scss";
+@import url('https://fonts.googleapis.com/css?family=Special+Elite&display=swap');
 
 $break-middle: 670px;
 $break-large: 1200px;
 $main-color:  #022f58;
 $card-color:  #26557e;
+$sefont: 'Special Elite', cursive;
 
 
+.seFont{
+}
+
+.header{
+    margin-left: 0;
+    font-family: $sefont;
+    font-size: 2rem;
+}
 
 main{
     min-width: 600px;
+    
 }
 
-.card2{
+p, h2{
+    font-family: $sefont;
+   
+}
+
+.card2{ 
     width: 20vw; 
     background-color: $card-color;
+    font-family: $sefont;
+   
 }
+
+.skillBox{
+    display: flex;
+    flex-direction: column;
+    background-color: $card-color;
+
+ 
+    @for $i from 1 through 10 {
+    
+   
+            & > div:nth-child(#{$i}) {
+                width: 300px;
+                height: 50px;
+                background-color: red;
+                margin: 10px;
+               
+                $value: 100px;
+                $number: 'hey' + $i; 
+                
+                animation: #{$number} ($i/5 *random(3))  + s infinite alternate;
+                @include oscillation($value,$number);  
+            }
+
+        }
+   
+
+}
+
+
 
 a{
     color: black;
-}
+} 
  
 .aboutMe{
     background-color: $card-color;
-    height: 100px;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    & > p {
+        text-shadow: 1px 1px 1px black;
+    }
 } 
+
+.interlude{
+    height: 5vh;
+    background-image: linear-gradient($card-color,$main-color);
+}
+
+
+.interlude2{
+    height: 5vh;
+    background-image: linear-gradient($main-color,$card-color);
+}
+
 
 .grid-container{
     display: flex;
@@ -35,7 +99,6 @@ a{
     
 }
 .grid{
-    border: solid black 1px;
     width: 100%;
     padding-bottom: 200px;
     display:grid;
@@ -178,7 +241,7 @@ a{
             border-right: solid $main-color 20px;
             border-left: solid $main-color 20px;
             border-bottom: solid $main-color 10px;
-            border-radius: 100%;
+            border-radius: 100%; 
             transform: translateY(-20px);
             & > p { 
             }
